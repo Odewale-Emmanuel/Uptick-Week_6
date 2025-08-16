@@ -1,11 +1,13 @@
+"use client";
+
 import { LoaderIcon } from "lucide-react";
-import { useNavigate, type NavigateFunction } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import type { JSX } from "react";
 
 function UnauthenticatedUser(): JSX.Element {
-  const navigate: NavigateFunction = useNavigate();
+  const router = useRouter();
   setTimeout(() => {
-    navigate("/sign-in");
+    router.push("/sign-in");
   }, 3000);
 
   return (

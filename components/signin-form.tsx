@@ -1,12 +1,14 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { LoaderIcon } from "lucide-react";
 import { useState } from "react";
 import { passwordRegEx, emailRegEx } from "@/utils/regex";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -19,7 +21,7 @@ export function SignInForm({
   const [emailCheck, setEmailCheck] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [passwordCheck, setPasswordCheck] = useState<boolean>(false);
-  const navigator = useNavigate();
+  const router = useRouter();
 
   function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
     setEmailCheck(emailRegEx.test(e.target.value));
@@ -58,7 +60,7 @@ export function SignInForm({
           setLoading(false);
           setEmail("");
           setPassword("");
-          navigator("/dashboard");
+          router.push("/dashboard");
         }
 
         const { accessToken } = response.data;
@@ -106,7 +108,7 @@ export function SignInForm({
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
             <Link
-              to="#"
+              href="#"
               className="ml-auto text-sm underline-offset-2 hover:underline"
             >
               Forgot your password?
@@ -172,7 +174,7 @@ export function SignInForm({
         </div>
         <div className="text-center text-sm">
           Don&apos;t have an account?{" "}
-          <Link to="/sign-up" className="underline underline-offset-4">
+          <Link href="/sign-up" className="underline underline-offset-4">
             Sign up
           </Link>
         </div>{" "}

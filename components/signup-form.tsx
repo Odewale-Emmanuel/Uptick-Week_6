@@ -1,14 +1,16 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { LoaderIcon } from "lucide-react";
 import { useState } from "react";
 import { nameRegEx, emailRegEx, passwordRegEx } from "@/utils/regex";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export function SignUpForm({
   className,
@@ -26,7 +28,7 @@ export function SignUpForm({
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [confirmPasswordCheck, setConfirmPasswordCheck] =
     useState<boolean>(false);
-  const navigator = useNavigate();
+  const router = useRouter();
 
   function handleFirstName(e: React.ChangeEvent<HTMLInputElement>) {
     setFirstNameCheck(nameRegEx.test(e.target.value));
@@ -123,7 +125,7 @@ export function SignUpForm({
           toast.success("account created successfully", {});
           toast("redirecting to sign-in page now");
           setTimeout(() => {
-            navigator("/sign-in");
+            router.push("/sign-in");
           }, 8000);
         }
       } catch (error: unknown) {
@@ -251,7 +253,7 @@ export function SignUpForm({
       </div>
       <div className="text-center text-sm">
         Already have an account?{" "}
-        <Link to="/sign-in" className="underline underline-offset-4">
+        <Link href="/sign-in" className="underline underline-offset-4">
           Sign In
         </Link>
       </div>

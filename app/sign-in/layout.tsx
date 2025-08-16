@@ -1,11 +1,5 @@
-import { Outlet } from "react-router-dom";
-
-function SignInLayout() {
-  return (
-    <div className="">
-      <Outlet />
-    </div>
-  );
+function SignInLayout({ children }: { children: React.ReactNode }) {
+  return <div className="">{children}</div>;
 }
 
 export default SignInLayout;

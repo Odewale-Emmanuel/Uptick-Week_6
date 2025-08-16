@@ -35,7 +35,7 @@ export function UpdateFavorite({
       updateFavorite({ ...note, favorite: !note.favorite });
     } catch (error: unknown) {
       if (error) {
-        console.log(error);
+        console.error(error);
         toast.error(
           "An error occurred while trying to favorite your note in the database. please check your network and try again"
         );

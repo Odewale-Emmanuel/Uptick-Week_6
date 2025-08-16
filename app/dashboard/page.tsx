@@ -1,3 +1,5 @@
+"use client";
+
 import {
   LuNotebookPen,
   LuSettings,
@@ -5,10 +7,10 @@ import {
   LuLogOut,
   LuUser,
 } from "react-icons/lu";
-import avatar from "@/assets/avatar.jpg";
+import avatar from "../../public/avatar.jpg";
 import { getGreeting, getTimestamp } from "@/utils/date-handler";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Link, useNavigate, type NavigateFunction } from "react-router-dom";
+import Link from "next/link";
 import { type JSX } from "react";
 import { cn } from "@/utils/cn";
 import type { Note } from "@/types/note";
@@ -18,11 +20,11 @@ import { useUser } from "@/hooks/use-user";
 import { noteReducer } from "@/reducers/note-reducers";
 import { Loading } from "@/components/loader";
 import { NoteCard } from "@/components/note-card";
-import SEO from "@/components/seo";
-import { useLocation } from "react-router-dom";
 import { AddNewNote } from "@/components/add-note";
 import { PreviewNote } from "@/components/note-preview";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Dashboard(): JSX.Element {
   const [previewNoteStatus, setPreviewNoteStatus] = useState(false);
@@ -34,8 +36,7 @@ function Dashboard(): JSX.Element {
   });
   const { user, authToken, tokenNotFound, invalidToken, notes, loadingNote } =
     useUser();
-  const navigate: NavigateFunction = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
     const html: HTMLCollectionOf<HTMLElement> =
@@ -45,7 +46,6 @@ function Dashboard(): JSX.Element {
       type: "set_note",
       payload: { notes: notes, filteredNotes: notes, searchTerm: "" },
     });
-    console.log(noteState);
   }, [notes, authToken, user]);
 
   if (invalidToken || tokenNotFound) {
@@ -58,7 +58,7 @@ function Dashboard(): JSX.Element {
 
   function handleLogout(): void {
     localStorage.removeItem("authToken");
-    navigate("/sign-in");
+    router.push("/sign-in");
   }
 
   function handleSearch(searchTerm: string) {
@@ -128,11 +128,6 @@ function Dashboard(): JSX.Element {
 
   return (
     <div className="grid grid-cols-5 items-stretch h-svh overflow-hidden">
-      <SEO
-        title={`${user?.name || "User"} Dashboard`}
-        description="StarkNotes User Dashboard"
-        url={`https://starknote.vercel.app${location.pathname}`}
-      />
       {/* TODO - make aside responsive */}
       <aside
         className={cn(
@@ -147,7 +142,7 @@ function Dashboard(): JSX.Element {
               <span className="absolute z-0">
                 <LuUser className=" text-xl" />
               </span>
-              <img
+              <Image
                 src={avatar}
                 alt="user-avatar"
                 className="z-10 saturate-0 dark:saturate-100 rounded-lg w-full h-full object-cover"
@@ -192,7 +187,7 @@ function Dashboard(): JSX.Element {
             <span>Logout</span>
           </span>
           <Link
-            to={"#"}
+            href={"#"}
             className="inline-flex items-center rounded-lg p-2 sm:p-3 gap-3 sm:gap-4 bg-white dark:bg-white/5"
           >
             <LuSettings className="text-xl text-black/70  dark:text-white" />
