@@ -1,6 +1,6 @@
-import organizeIcon from "@/public/feature-organize.jpg";
-import searchIcon from "@/public/feature-search.jpg";
-import secureIcon from "@/public/feature-secure.jpg";
+import organizeIcon from "@/public/assets/feature-organize.jpg";
+import searchIcon from "@/public/assets/feature-search.jpg";
+import secureIcon from "@/public/assets/feature-secure.jpg";
 import Image from "next/image";
 
 const Features = () => {

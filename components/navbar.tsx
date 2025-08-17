@@ -2,7 +2,7 @@ import { cn } from "../utils/cn";
 import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "@/components/mode-toggle";
-import logo from "../public/starknotes-logo-large.png";
+import logo from "../public/assets/starknotes-logo-large.png";
 
 function NavBar() {
   return (

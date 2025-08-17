@@ -1,5 +1,5 @@
 import { SignUpForm } from "@/components/signup-form";
-import note from "../../public/notes.jpg";
+import note from "../../public/assets/notes.jpg";
 import Image from "next/image";
 
 function SignUp() {

@@ -1,5 +1,5 @@
 import { SignInForm } from "@/components/signin-form";
-import frame from "../../public/frame-medium.jpg";
+import frame from "../../public/assets/frame-medium.jpg";
 import Image from "next/image";
 
 function SignIn() {

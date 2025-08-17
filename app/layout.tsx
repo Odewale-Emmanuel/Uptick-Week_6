@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     { name: "Emmanuel Odewale", url: "https://github.com/Odewale-Emmanuel" },
   ],
   icons: {
-    icon: "../public/starknotes-logo-large.png",
+    icon: "../public/assets/starknotes-logo-large.png",
   },
   twitter: {
     card: "summary_large_image",

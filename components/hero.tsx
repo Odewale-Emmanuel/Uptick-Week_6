@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import heroImage from "../public/starknotes.png";
+import heroImage from "../public/assets/starknotes.png";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 

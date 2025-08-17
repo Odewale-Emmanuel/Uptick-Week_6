@@ -7,7 +7,7 @@ import {
   LuLogOut,
   LuUser,
 } from "react-icons/lu";
-import avatar from "../../public/avatar.jpg";
+import avatar from "../../public/assets/avatar.jpg";
 import { getGreeting, getTimestamp } from "@/utils/date-handler";
 import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
