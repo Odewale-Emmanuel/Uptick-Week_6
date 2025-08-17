@@ -33,36 +33,41 @@ export function PreviewNote({
 
           <div>
             <table className="border-separate border-spacing-x-6 border-spacing-y-2">
-              <tr>
-                <td className="text-gray-500 dark:text-gray-400 text-sm">
-                  Created By
-                </td>
-                <td className="ms-2 text-sm">You</td>
-              </tr>
-              <tr>
-                <td className="text-gray-500 dark:text-gray-400 text-sm">
-                  Last Modified
-                </td>
-                <td className="text-sm">
-                  {dateWithTime(new Date(note.updated_at))}
-                </td>
-              </tr>
-              {note.tags.length >= 1 && (
+              <tbody>
                 <tr>
                   <td className="text-gray-500 dark:text-gray-400 text-sm">
-                    Tags
+                    Created By
                   </td>
-                  <td className="text-sm inline-flex items-center">
-                    <div className="inline-flex flex-wrap my-1 gap-2 sm:gap-2">
-                      {note.tags.map((tag, index) => (
-                        <Tag name={tag} key={index} className="text-sm" />
-                      ))}
-                      {/* non-mvp feature  */}
-                      <Tag name={`+ add new tag`} className="text-sm hidden" />
-                    </div>
+                  <td className="ms-2 text-sm">You</td>
+                </tr>
+                <tr>
+                  <td className="text-gray-500 dark:text-gray-400 text-sm">
+                    Last Modified
+                  </td>
+                  <td className="text-sm">
+                    {dateWithTime(new Date(note.updated_at))}
                   </td>
                 </tr>
-              )}
+                {note.tags.length >= 1 && (
+                  <tr>
+                    <td className="text-gray-500 dark:text-gray-400 text-sm">
+                      Tags
+                    </td>
+                    <td className="text-sm inline-flex items-center">
+                      <div className="inline-flex flex-wrap my-1 gap-2 sm:gap-2">
+                        {note.tags.map((tag, index) => (
+                          <Tag name={tag} key={index} className="text-sm" />
+                        ))}
+                        {/* non-mvp feature  */}
+                        <Tag
+                          name={`+ add new tag`}
+                          className="text-sm hidden"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
             </table>
           </div>
 

@@ -53,7 +53,7 @@ function Dashboard(): JSX.Element {
   }
 
   if (!user) {
-    <Loading message="Loading user dashboard..." />;
+    return <Loading message="Loading user dashboard..." />;
   }
 
   function handleLogout(): void {
@@ -229,6 +229,18 @@ function Dashboard(): JSX.Element {
               )}
             >
               {loadingNote && <Loading message="loading notes..." />}
+              {!loadingNote &&
+                noteState.notes.length >= 1 &&
+                !noteState.filteredNotes.length && (
+                  <p className="w-full p-4 sm:p-6 rounded-lg text-sm bg-black/3 dark:bg-black/10 break-inside-avoid">
+                    Ops no note found...
+                  </p>
+                )}
+              {!loadingNote && !noteState.notes.length && (
+                <p className="w-full p-4 sm:p-6 rounded-lg text-sm bg-black/3 dark:bg-black/10 break-inside-avoid">
+                  You have no notes yet, create one to get started!
+                </p>
+              )}
               {noteState.filteredNotes.length >= 1 &&
                 [...noteState.filteredNotes]
                   .sort(
@@ -250,11 +262,6 @@ function Dashboard(): JSX.Element {
                       )}
                     />
                   ))}
-              {!loadingNote && !noteState.filteredNotes.length && (
-                <p className="w-full p-4 sm:p-6 rounded-lg text-sm bg-black/3 dark:bg-black/10 break-inside-avoid">
-                  Ops no note found...
-                </p>
-              )}
             </div>
           </div>
         </div>

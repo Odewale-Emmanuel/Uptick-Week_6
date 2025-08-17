@@ -6,9 +6,11 @@ export function useAuth() {
   const [user, setUser] = useState<DecodedToken | null>(null);
   const [invalidToken, setInvalidToken] = useState<boolean>(false);
   const [tokenNotFound, setTokenNotFound] = useState<boolean>(false);
-  const authToken = localStorage.getItem("authToken");
+  const [authToken, setAuthToken] = useState<string | null>(null);
 
   useEffect(() => {
+    const authToken: string | null = localStorage.getItem("authToken");
+    setAuthToken(authToken);
     if (!authToken) {
       setTokenNotFound(true);
       return;
