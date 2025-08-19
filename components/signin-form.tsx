@@ -45,11 +45,22 @@ export function SignInForm({
       setLoading(true);
 
       try {
-        const response: Axios.AxiosXHR<{ accessToken: string }> =
-          await axios.post("https://uptick-week-4.onrender.com/api/sign-in", {
+        const response: Axios.AxiosXHR<{
+          accessToken: string;
+          refreshToken: string;
+        }> = await axios.post(
+          "https://uptick-week-4.onrender.com/api/sign-in",
+          {
             email: email,
             password: password,
-          });
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            // withCredentials: true,
+          }
+        );
 
         if (!(response.status == 200)) {
           toast.error("Failed to sign in user");
@@ -65,6 +76,7 @@ export function SignInForm({
 
         const { accessToken } = response.data;
         localStorage.setItem("authToken", String(accessToken));
+        console.log(response);
       } catch (error: unknown) {
         setLoading(false);
         toast.error("an error occured while trying to sign you in");
