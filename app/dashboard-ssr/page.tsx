@@ -52,9 +52,6 @@ export default async function Dashboard() {
     console.error("Error while fetching notes", error);
   }
 
-  console.log("user", user);
-  console.log("notes", notes);
-
   return (
     <UserDashboard
       user={user}
