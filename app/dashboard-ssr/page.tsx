@@ -56,16 +56,18 @@ export default async function Dashboard() {
 
   return (
     <div>
-      <p>hello from server</p>
+      <p>
+        hello from server {authToken} {refreshToken}
+      </p>
       {/* Pass the fetched notes and other data to UserDashboard */}
-      <UserDashboard
+      {/* <UserDashboard
         user={user}
         authToken={authToken}
         refreshToken={refreshToken}
         invalidToken={invalidToken}
         tokenNotFound={tokenNotFound}
         notes={notes}
-      />
+      /> */}
     </div>
   );
 }
