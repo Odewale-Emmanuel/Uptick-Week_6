@@ -32,7 +32,6 @@ type UserDashboardProps = {
   invalidToken: boolean;
   tokenNotFound: boolean;
   notes: Note[];
-  loading: boolean;
 };
 
 function UserDashboard({

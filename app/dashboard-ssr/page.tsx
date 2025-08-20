@@ -53,7 +53,6 @@ export default async function Dashboard() {
       invalidToken={invalidToken}
       tokenNotFound={tokenNotFound}
       notes={notes}
-      loading={false}
     />
   );
 }
