@@ -63,9 +63,8 @@ export default async function Dashboard() {
     <div>
       <p>
         hello from server {authToken} {refreshToken}
-        {cookiesStore.get("accessToken")?.value}
+        {cookiesStore.get("authToken")?.value}
         {cookiesStore.get("refreshToken")?.value}
-        {cookiesStore}
       </p>
       {/* Pass the fetched notes and other data to UserDashboard */}
       {/* <UserDashboard
