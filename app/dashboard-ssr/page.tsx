@@ -56,17 +56,13 @@ export default async function Dashboard() {
   console.log("notes", notes);
 
   return (
-    <div>
-      <p>hello from server</p>
-      {/* Pass the fetched notes and other data to UserDashboard */}
-      <UserDashboard
-        user={user}
-        authToken={authToken}
-        refreshToken={refreshToken}
-        invalidToken={invalidToken}
-        tokenNotFound={tokenNotFound}
-        notes={notes}
-      />
-    </div>
+    <UserDashboard
+      user={user}
+      authToken={authToken}
+      refreshToken={refreshToken}
+      invalidToken={invalidToken}
+      tokenNotFound={tokenNotFound}
+      notes={notes}
+    />
   );
 }
