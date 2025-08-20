@@ -7,12 +7,10 @@ import type { Note } from "@/types/note";
 
 export default async function Dashboard() {
   const cookiesStore = await cookies();
-  const authToken =
-    cookiesStore.get("accessToken")?.value ||
-    localStorage.getItem("authToken") ||
-    "";
+  const authToken = cookiesStore.get("accessToken")?.value || "";
   const refreshToken = cookiesStore.get("refreshToken")?.value || "";
 
+  console.log("cookiesStore", cookiesStore);
   console.log("authToken", authToken);
   console.log("refreshToken", refreshToken);
 
