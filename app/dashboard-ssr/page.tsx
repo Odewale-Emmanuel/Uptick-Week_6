@@ -36,30 +36,36 @@ export default async function Dashboard() {
           headers: { Authorization: `Bearer ${authToken}` },
         }
       );
-      notes = response.data;
+      return response.data;
     } catch (error: unknown) {
-      if (error) throw error;
+      console.error("Error fetching notes:", error);
       throw error;
     }
   };
 
-  fetchNotes();
+  try {
+    notes = await fetchNotes();
+  } catch (error) {
+    console.error("Error while fetching notes", error);
+  }
 
   console.log("user", user);
   console.log("authToken", authToken);
   console.log("refreshToken", refreshToken);
   console.log("notes", notes);
+
   return (
     <div>
       <p>hello from server</p>
-      {/* <UserDashboard
+      {/* Pass the fetched notes and other data to UserDashboard */}
+      <UserDashboard
         user={user}
         authToken={authToken}
         refreshToken={refreshToken}
         invalidToken={invalidToken}
         tokenNotFound={tokenNotFound}
         notes={notes}
-      /> */}
+      />
     </div>
   );
 }
