@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export default async function Dashboard() {
   const cookiesStore = await cookies();
-  const authToken = cookiesStore.get("authToken")?.value || null;
+  const authToken = cookiesStore.get("accessToken")?.value || null;
   const refreshToken = cookiesStore.get("refreshToken")?.value || null;
 
   console.log("authToken", authToken);
