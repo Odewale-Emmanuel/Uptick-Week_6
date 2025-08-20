@@ -70,7 +70,7 @@ export function SignInForm({
           setLoading(false);
           setEmail("");
           setPassword("");
-          router.push("/dashboard-ssr");
+          router.push("/dashboard");
         }
 
         const { accessToken } = response.data;
