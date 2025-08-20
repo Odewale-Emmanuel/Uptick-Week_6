@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "../public/assets/starknotes-logo-large.png",
+    shortcut: "../public/assets/starknotes-logo-large.png",
+    apple: "../public/assets/starknotes-logo-large.png",
   },
   twitter: {
     card: "summary_large_image",

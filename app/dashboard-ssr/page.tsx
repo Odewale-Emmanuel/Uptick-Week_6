@@ -52,14 +52,14 @@ export default async function Dashboard() {
   return (
     <div>
       <p>hello from server</p>
-      <UserDashboard
+      {/* <UserDashboard
         user={user}
         authToken={authToken}
         refreshToken={refreshToken}
         invalidToken={invalidToken}
         tokenNotFound={tokenNotFound}
         notes={notes}
-      />
+      /> */}
     </div>
   );
 }
