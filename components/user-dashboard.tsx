@@ -55,7 +55,7 @@ function UserDashboard({
     const html: HTMLCollectionOf<HTMLElement> =
       document.getElementsByTagName("html");
     html[0].classList.add("overflow-hidden");
-  }, [notes, authToken]);
+  }, [noteState.filteredNotes, authToken]);
 
   if (invalidToken || tokenNotFound) {
     return <UnauthenticatedUser />;
