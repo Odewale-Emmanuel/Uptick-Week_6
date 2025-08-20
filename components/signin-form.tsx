@@ -75,7 +75,7 @@ export function SignInForm({
 
         const { accessToken } = response.data;
         localStorage.setItem("authToken", String(accessToken));
-        cookieStore.set("authToken", accessToken);
+        // cookieStore.set("authToken", accessToken);
         document.cookie = `authToken=${accessToken}; path=/; max-age=1800000; Secure; SameSite=None`;
       } catch (error: unknown) {
         setLoading(false);
