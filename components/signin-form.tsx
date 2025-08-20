@@ -70,11 +70,13 @@ export function SignInForm({
           setLoading(false);
           setEmail("");
           setPassword("");
-          router.push("/dashboard-ssr");
+          router.push("/dashboard");
         }
 
         const { accessToken } = response.data;
         localStorage.setItem("authToken", String(accessToken));
+        cookieStore.set("authToken", accessToken);
+        document.cookie = `authToken=${accessToken}; path=/; max-age=1800000; Secure; SameSite=None`;
       } catch (error: unknown) {
         setLoading(false);
         toast.error("an error occured while trying to sign you in");
