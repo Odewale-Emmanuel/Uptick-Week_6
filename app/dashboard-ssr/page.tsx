@@ -45,6 +45,10 @@ export default async function Dashboard() {
 
   fetchNotes();
 
+  console.log("user", user);
+  console.log("authToken", authToken);
+  console.log("refreshToken", refreshToken);
+  console.log("notes", notes);
   return (
     <div>
       <p>hello from server</p>
