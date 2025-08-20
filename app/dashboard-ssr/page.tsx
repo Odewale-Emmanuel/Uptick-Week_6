@@ -10,6 +10,9 @@ export default async function Dashboard() {
   const authToken = cookiesStore.get("accessToken")?.value || "";
   const refreshToken = cookiesStore.get("refreshToken")?.value || "";
 
+  console.log("authToken", authToken);
+  console.log("refreshToken", refreshToken);
+
   let notes: Note[] = [];
   let user: DecodedToken | null = null;
   let invalidToken = false;
@@ -50,8 +53,6 @@ export default async function Dashboard() {
   }
 
   console.log("user", user);
-  console.log("authToken", authToken);
-  console.log("refreshToken", refreshToken);
   console.log("notes", notes);
 
   return (
