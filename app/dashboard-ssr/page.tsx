@@ -46,13 +46,16 @@ export default async function Dashboard() {
   fetchNotes();
 
   return (
-    <UserDashboard
-      user={user}
-      authToken={authToken}
-      refreshToken={refreshToken}
-      invalidToken={invalidToken}
-      tokenNotFound={tokenNotFound}
-      notes={notes}
-    />
+    <div>
+      <p>hello from server</p>
+      <UserDashboard
+        user={user}
+        authToken={authToken}
+        refreshToken={refreshToken}
+        invalidToken={invalidToken}
+        tokenNotFound={tokenNotFound}
+        notes={notes}
+      />
+    </div>
   );
 }
